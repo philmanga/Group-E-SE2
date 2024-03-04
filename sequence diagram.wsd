@@ -1,0 +1,28 @@
+@startuml
+autonumber
+title Sequence Diagram for university nomination system
+
+actor User
+participant "Presentation Layer" as PL
+participant "Business Logic Layer" as BLL
+participant "Data Layer" as DL
+
+User -> PL: Send request
+activate PL
+
+PL -> BLL: Validate input and forward request
+activate BLL
+
+BLL -> DL: Process request (if needed)
+activate DL
+
+DL -> BLL: Send response (if needed)
+activate BLL
+
+BLL -> PL: Prepare response
+activate PL
+
+PL -> User: Present response
+deactivate PL
+
+@enduml
